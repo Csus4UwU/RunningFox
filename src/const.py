@@ -1,6 +1,7 @@
 ScreenSize = (1280, 720)
 fps = 60
 Foxtick = 5
+Foxsize = (128, 128)
 
 
 class IdxCount:

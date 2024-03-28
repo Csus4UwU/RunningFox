@@ -30,12 +30,12 @@ class Image(pygame.sprite.Sprite):
     def CheckImageIndex(self):
         idx = (self.pathIndex + 1) % self.pathIndexCount
         self.UpdateIndex(idx)
-        pygame.time.Clock().tick(Foxtick)
 
     def CheckPosition(self):
-        pass
+        self.pos[0] += 10
 
     def Update(self):
+        pygame.time.Clock().tick(Foxtick)
         self.CheckImageIndex()
         self.CheckPosition()
 
