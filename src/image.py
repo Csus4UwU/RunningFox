@@ -1,5 +1,6 @@
 import pygame
 from const import *
+import time
 
 
 class Image(pygame.sprite.Sprite):
@@ -31,13 +32,14 @@ class Image(pygame.sprite.Sprite):
         idx = (self.pathIndex + 1) % self.pathIndexCount
         self.UpdateIndex(idx)
 
-    def CheckPosition(self):
-        self.pos[0] += 10
+    def CheckPosition(self, speed):
+        self.pos[0] += speed[0]
+        self.pos[1] += speed[1]
 
-    def Update(self):
-        pygame.time.Clock().tick(Foxtick)
+    def Update(self, speed):
+        time.sleep(0.15)
         self.CheckImageIndex()
-        self.CheckPosition()
+        self.CheckPosition(speed)
 
     def GetRect(self):
         rect = self.image.get_rect()
