@@ -37,7 +37,7 @@ class Image(pygame.sprite.Sprite):
         self.pos[1] += speed[1]
 
     def Update(self, speed):
-        time.sleep(0.15)
+        time.sleep(Foxtick / fps)
         self.CheckImageIndex()
         self.CheckPosition(speed)
 
