@@ -3,6 +3,14 @@ fps = 60
 Foxtick = 4
 Foxsize = (128, 128)
 
+DOZE = "doze"
+HOP = "hop"
+REST = "rest"
+SLEEP = "sleep"
+STAND = "stand"
+SURPRISE = "surprise"
+WALK = "walk"
+
 IdxCount = {
     "doze": 7,
     "hop": 11,
@@ -30,5 +38,5 @@ FoxSpeed = {
     "sleep": (0, 0),
     "stand": (0, 0),
     "surprise": (0, 0),
-    "walk": (10, -2),
+    "walk": (10, -1.3),
 }

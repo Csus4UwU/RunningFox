@@ -7,6 +7,10 @@ class Fox(image.Image):
         super(Fox, self).__init__(
             FoxActionPath[action], 0, pos, Foxsize, IdxCount[action]
         )
+        self.action = action
 
-    def _walk(self):
-        self.Update(FoxSpeed["walk"])
+    def FoxUpdate(self):
+        if self.action != SLEEP:
+            self.Update(FoxSpeed[self.action])
+        else:
+            self.Update(FoxSpeed[SLEEP], 0.2)
