@@ -36,8 +36,7 @@ class Image(pygame.sprite.Sprite):
         self.pos[0] += speed[0]
         self.pos[1] += speed[1]
 
-    def Update(self, speed, wait_time=0.1):
-        time.sleep(wait_time)
+    def Update(self, speed):
         self.CheckImageIndex()
         self.CheckPosition(speed)
 

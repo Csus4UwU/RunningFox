@@ -38,5 +38,5 @@ FoxSpeed = {
     "sleep": (0, 0),
     "stand": (0, 0),
     "surprise": (0, 0),
-    "walk": (10, -1.3),
+    "walk": (8, 8),
 }
