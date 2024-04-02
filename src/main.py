@@ -16,7 +16,7 @@ Fox2 = fox.Fox(WALK, (0, 600))
 walktime = 0
 
 flag1 = 0
-d1 = (1100, 600)
+d1 = (500, 600)
 
 while True:
     for event in pygame.event.get():
