@@ -15,7 +15,7 @@ IdxCount = {
     "doze": 7,
     "hop": 11,
     "rest": 14,
-    "sleep": 6,
+    "sleep": 11,
     "stand": 5,
     "surprise": 5,
     "walk": 8,

@@ -11,12 +11,12 @@ pygame.display.set_icon(pygame.image.load("pic/icon/fox-tail2.png"))
 pygame.display.set_caption("akiba!")
 
 Background = image.Image("pic/background/snowland1.png", 0, (0, 0), ScreenSize)
-Fox2 = fox.Fox(WALK, (0, 600))
+Fox2 = fox.Fox(WALK, (100, 500))
 # Fox3 = fox.Fox(SLEEP, (500, 500))
 walktime = 0
 
 flag1 = 0
-d1 = (500, 600)
+d1 = (700, 500)
 
 while True:
     for event in pygame.event.get():
