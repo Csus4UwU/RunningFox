@@ -24,8 +24,11 @@ class Image(pygame.sprite.Sprite):
         self.pathIndex = pathIndex
         self.UpdateImage()
 
-    def UpdatePathFmt(self, pathFmt):
+    def UpdatePath(self, pathFmt, pathIndexCount):
+        if pathFmt != self.pathFmt:
+            self.pathIndex = 1
         self.pathFmt = pathFmt
+        self.pathIndexCount = pathIndexCount
         self.UpdateImage()
 
     def UpdateSize(self, size):
@@ -40,11 +43,8 @@ class Image(pygame.sprite.Sprite):
         self.pos[0] += speed[0]
         self.pos[1] += speed[1]
 
-    def CheckPath(self, pathFmt):
-        self.UpdatePathFmt(pathFmt)
-
-    def Update(self, speed, path):
-        # self.CheckPath(path)
+    def Update(self, speed, path, idxcount):
+        self.UpdatePath(path, idxcount)
         self.CheckImageIndex()
         self.CheckPosition(speed)
 

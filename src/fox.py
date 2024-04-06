@@ -15,6 +15,10 @@ class Fox(image.Image):
     def UpdateAction(self, newaction):
         self.action = newaction
 
+    def UpdateSpeed(self, speedX, speedY):
+        self.speed[0] = speedX
+        self.speed[1] = speedY
+
     def CheckSpeed(self, action=WALK):
         # self.speed[0] = (self.destination[0] - self.pos[0]) / 60
         # self.speed[1] = (self.destination[1] - self.pos[1]) / 60
@@ -59,10 +63,10 @@ class Fox(image.Image):
         if npos != self.destination:
             self.UpdateDest(npos)
             self.UpdateDir()
-        # self.CheckSpeed()
         if self.CheckIfArrive():
             self.UpdateAction(SLEEP)
+            self.UpdateSpeed(0, 0)
 
     def FoxUpdate(self):
-        self.Update(self.speed, FoxActionPath[self.action])
+        self.Update(self.speed, FoxActionPath[self.action], IdxCount[self.action])
         print(self.action)
