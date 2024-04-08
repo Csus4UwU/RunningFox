@@ -11,6 +11,7 @@ class Fox(image.Image):
         self.destination = (0, 0)
         self.speed = list((0, 0))
         self.dir = [0, 0]  # 1,-1,0(init)
+        self.timer = 0
 
     def UpdateAction(self, newaction):
         self.action = newaction
@@ -30,9 +31,19 @@ class Fox(image.Image):
             else:
                 self.speed[i] = FoxSpeed[action][i]
 
+    def CheckDir(self):
+        for i in range(2):
+            if self.dir[i] == -1:
+                self.speed[i] = -self.speed[i]
+        if self.dir[0] == -1:
+            self.Xrev = True
+        else:
+            self.Xrev = False
+
     def UpdateDest(self, npos):
         self.destination = npos
         self.CheckSpeed()
+        self.CheckDir()
 
     def UpdateDir(self):
         if self.destination[0] - self.pos[0] >= 0:
@@ -63,10 +74,15 @@ class Fox(image.Image):
         if npos != self.destination:
             self.UpdateDest(npos)
             self.UpdateDir()
-        if self.CheckIfArrive():
-            self.UpdateAction(SLEEP)
+            print("updateDest")
+            print(self.destination)
+            print(self.dir)
+        if self.CheckIfArrive() and self.action != DOZE and self.action != SLEEP:
+            self.UpdateAction(REST)
             self.UpdateSpeed(0, 0)
+        if self.action == DOZE and self.pathIndex == IdxCount[DOZE] - 1:
+            self.UpdateAction(SLEEP)
 
     def FoxUpdate(self):
         self.Update(self.speed, FoxActionPath[self.action], IdxCount[self.action])
-        print(self.action)
+        # print(self.action)

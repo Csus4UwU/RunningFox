@@ -1,6 +1,6 @@
 ScreenSize = (1280, 720)
 fps = 60
-Foxtick = 4
+Foxtick = 5
 Foxsize = (128, 128)
 
 DOZE = "doze"
@@ -15,7 +15,7 @@ IdxCount = {
     "doze": 7,
     "hop": 11,
     "rest": 14,
-    "sleep": 11,
+    "sleep": 17,
     "stand": 5,
     "surprise": 5,
     "walk": 8,

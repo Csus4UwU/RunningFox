@@ -10,6 +10,8 @@ class Image(pygame.sprite.Sprite):
         self.pathIndexCount = pathIndexCount
         self.pos = list(pos)
         self.size = size
+        self.Xrev = False
+        self.Yrev = False
         self.UpdateImage()
 
     def UpdateImage(self):
@@ -53,6 +55,9 @@ class Image(pygame.sprite.Sprite):
         rect.x, rect.y = self.pos
         return rect
 
+    def XReverse(self):
+        self.Xrev = True
+
     def DoLeft(self):
         self.pos[0] -= 1
 
@@ -66,4 +71,5 @@ class Image(pygame.sprite.Sprite):
         self.pos[1] += 1
 
     def draw(self, ds):
+        pygame.transform.flip(self.image, self.Xrev, self.Yrev)
         ds.blit(self.image, self.GetRect())
