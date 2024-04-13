@@ -15,7 +15,7 @@ Fox2 = fox.Fox(WALK, (100, 500))
 # Fox3 = fox.Fox(SLEEP, (500, 500))
 
 flag1 = 0
-d1 = (700, 500)
+d1 = (500, 500)
 
 while True:
     for event in pygame.event.get():
@@ -25,7 +25,7 @@ while True:
     DS.fill((255, 255, 255))
     Background.draw(DS)
     if pygame.mouse.get_pressed()[0]:
-        d1 = (pygame.mouse.get_pos()[0], 500)
+        d1 = (pygame.mouse.get_pos()[0] - 64, 500)
     Fox2.FoxCheck(d1)
     Fox2.FoxUpdate()
     Fox2.draw(DS)

@@ -43,6 +43,7 @@ class Fox(image.Image):
     def UpdateDest(self, npos):
         self.destination = npos
         self.CheckSpeed()
+        self.UpdateDir()
         self.CheckDir()
 
     def UpdateDir(self):
@@ -70,19 +71,33 @@ class Fox(image.Image):
             return True
         return False
 
+    def StStop(self):
+        self.UpdateAction(REST)
+        self.UpdateSpeed(0, 0)
+
+    def StMove(self, npos):
+        self.UpdateAction(WALK)
+        self.UpdateDest(npos)
+        self.UpdateDir()
+
     def FoxCheck(self, npos):
         if npos != self.destination:
-            self.UpdateDest(npos)
-            self.UpdateDir()
-            print("updateDest")
-            print(self.destination)
-            print(self.dir)
-        if self.CheckIfArrive() and self.action != DOZE and self.action != SLEEP:
-            self.UpdateAction(REST)
-            self.UpdateSpeed(0, 0)
+            self.StMove(npos)
+            self.Debug()
+        elif self.CheckIfArrive() and self.action != DOZE and self.action != SLEEP:
+            self.StStop()
         if self.action == DOZE and self.pathIndex == IdxCount[DOZE] - 1:
             self.UpdateAction(SLEEP)
 
     def FoxUpdate(self):
         self.Update(self.speed, FoxActionPath[self.action], IdxCount[self.action])
         # print(self.action)
+
+    def Debug(self):
+        DebugDict = {
+            "Dest": self.destination,
+            "Pos": self.pos,
+            "Dir": self.dir,
+            "Speed": self.speed,
+        }
+        print(DebugDict)
