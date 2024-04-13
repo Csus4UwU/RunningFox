@@ -30,11 +30,10 @@ class Fox(image.Image):
                 self.speed[i] = (self.destination[i] - self.pos[i]) / fps
             else:
                 self.speed[i] = FoxSpeed[action][i]
-
-    def CheckDir(self):
-        for i in range(2):
             if self.dir[i] == -1:
                 self.speed[i] = -self.speed[i]
+
+    def CheckRev(self):
         if self.dir[0] == -1:
             self.Xrev = True
         else:
@@ -42,9 +41,9 @@ class Fox(image.Image):
 
     def UpdateDest(self, npos):
         self.destination = npos
-        self.CheckSpeed()
         self.UpdateDir()
-        self.CheckDir()
+        self.CheckSpeed()
+        # self.CheckRev()
 
     def UpdateDir(self):
         if self.destination[0] - self.pos[0] >= 0:
