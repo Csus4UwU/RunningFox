@@ -5,9 +5,9 @@ from const import *
 class Mouse:
     def __init__(self) -> None:
         self.pos = [0, 0]
-        self.IsLeftPressed = 0
-        self.IsMidPressed = 0
-        self.IsRightPressed = 0
+        self.IsLeftPressed = False
+        self.IsMidPressed = False
+        self.IsRightPressed = False
 
     def UpdateIsPressed(self):
         self.IsLeftPressed = pygame.mouse.get_pressed()[0]
