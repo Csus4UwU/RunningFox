@@ -21,6 +21,8 @@ class Image(pygame.sprite.Sprite):
         self.image = pygame.image.load(path)
         if self.size:
             self.image = pygame.transform.scale(self.image, self.size)
+        if self.Xrev or self.Yrev:
+            self.image = pygame.transform.flip(self.image, self.Xrev, self.Yrev)
 
     def UpdateIndex(self, pathIndex):
         self.pathIndex = pathIndex
@@ -71,5 +73,4 @@ class Image(pygame.sprite.Sprite):
         self.pos[1] += 1
 
     def draw(self, ds):
-        pygame.transform.flip(self.image, self.Xrev, self.Yrev)
         ds.blit(self.image, self.GetRect())

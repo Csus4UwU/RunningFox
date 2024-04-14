@@ -1,8 +1,11 @@
+# from akiba import *
 import pygame
-import sys
-import image, fox
-from const import *
 import mouse
+import image
+import fox
+from const import *
+import os
+import sys
 
 pygame.init()
 
@@ -13,7 +16,7 @@ pygame.display.set_caption("akiba!")
 Background = image.Image("pic/background/snowland1.png", 0, (0, 0), ScreenSize)
 Fox2 = fox.Fox(WALK, (100, 500))
 # Fox3 = fox.Fox(SLEEP, (500, 500))
-Mouse = mouse.Mouse()
+UserMouse = mouse.Mouse()
 
 flag1 = 0
 d1 = (500, 500)
@@ -25,9 +28,9 @@ while True:
             sys.exit()
     DS.fill((255, 255, 255))
     Background.draw(DS)
-    Mouse.UpdateIsPressed()
-    if Mouse.IsLeftPressed:
-        d1 = (Mouse.GetPos()[0] - 64, 500)
+    UserMouse.UpdateIsPressed()
+    if UserMouse.IsLeftPressed:
+        d1 = (UserMouse.GetXpos(), 500)
     # if pygame.mouse.get_pressed()[0]:
     #     d1 = (pygame.mouse.get_pos()[0] - 64, 500)
     Fox2.FoxCheck(d1)

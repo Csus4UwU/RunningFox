@@ -43,7 +43,7 @@ class Fox(image.Image):
         self.destination = npos
         self.UpdateDir()
         self.CheckSpeed()
-        # self.CheckRev()
+        self.CheckRev()
 
     def UpdateDir(self):
         if self.destination[0] - self.pos[0] >= 0:
