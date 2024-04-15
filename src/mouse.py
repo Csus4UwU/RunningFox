@@ -21,4 +21,4 @@ class Mouse:
         return pygame.mouse.get_pos()[0] - 64
 
     def GetYpos(self):
-        return pygame.mouse.get_pos()[1] + 64
+        return pygame.mouse.get_pos()[1] - 100

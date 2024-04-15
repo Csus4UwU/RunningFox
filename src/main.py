@@ -19,7 +19,7 @@ Fox2 = fox.Fox(WALK, (100, 500))
 UserMouse = mouse.Mouse()
 
 flag1 = 0
-d1 = (500, 500)
+d1 = (500, 0)
 
 while True:
     for event in pygame.event.get():
@@ -30,7 +30,7 @@ while True:
     Background.draw(DS)
     UserMouse.UpdateIsPressed()
     if UserMouse.IsLeftPressed:
-        d1 = (UserMouse.GetXpos(), 500)
+        d1 = (UserMouse.GetXpos(), UserMouse.GetYpos())
     # if pygame.mouse.get_pressed()[0]:
     #     d1 = (pygame.mouse.get_pos()[0] - 64, 500)
     Fox2.FoxCheck(d1)
