@@ -1,4 +1,5 @@
 import pygame
+import gamemap
 from const import *
 
 
@@ -14,11 +15,19 @@ class Mouse:
         self.IsMidPressed = pygame.mouse.get_pressed()[1]
         self.IsRightPressed = pygame.mouse.get_pressed()[2]
 
+    def CheckPos(self, mapidx):
+        self.GetPos()
+        self.Correct(mapidx)
+        return self.pos
+
     def GetPos(self):
-        return pygame.mouse.get_pos()
+        self.pos = list(pygame.mouse.get_pos())
+        self.pos[0] = self.pos[0] - 64
+        self.pos[1] = self.pos[1] - 100
 
-    def GetXpos(self):
-        return pygame.mouse.get_pos()[0] - 64
-
-    def GetYpos(self):
-        return pygame.mouse.get_pos()[1] - 100
+    def Correct(self, mapidx):
+        if mapidx == 1:
+            if self.pos[1] > ScreenSize[1]:
+                self.pos[1] = ScreenSize[1]
+            elif self.pos[1] < -self.pos[0] * 5 / 9 + 900:
+                self.pos[1] = -self.pos[0] * 5 / 9 + 900

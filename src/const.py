@@ -1,5 +1,6 @@
 ScreenSize = (1280, 720)
-fps = 60
+fps = 12
+divfps = 0.08333
 Foxtick = 5
 Foxsize = (128, 128)
 
@@ -38,5 +39,5 @@ FoxSpeed = {
     "sleep": (0, 0),
     "stand": (0, 0),
     "surprise": (0, 0),
-    "walk": (10, 0),
+    "walk": (10, 10),
 }

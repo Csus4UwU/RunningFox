@@ -38,11 +38,14 @@ class Fox(image.Image):
         sy = self.destination[1] - self.pos[1]
         vx = vy = 0
         if self.dir[0] == 1:
-            vx = max(sx / fps, FoxSpeed[self.action][0])
+            vx = max(sx * 0.5 * divfps, FoxSpeed[self.action][0])
         elif self.dir[0] == -1:
-            vx = -max(sx / fps, FoxSpeed[self.action][0])
+            vx = -min(sx * 0.5 * divfps, FoxSpeed[self.action][0])
         tx = sx / vx
-        vy = sy / tx
+        if tx >= 1 / fps:
+            vy = sy / tx
+        else:
+            vy = sy * fps
         self.UpdateSpeed(vx, vy)
 
     def CheckRev(self):
