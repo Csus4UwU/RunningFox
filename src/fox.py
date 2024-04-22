@@ -34,7 +34,7 @@ class Fox(image.Image):
     def CheckSpeed(self, action=WALK):
         # self.speed[0] = (self.destination[0] - self.pos[0]) / 60
         # self.speed[1] = (self.destination[1] - self.pos[1]) / 60
-        sx = self.destination[0] - self.pos[0]
+        sx = abs(self.destination[0] - self.pos[0])
         sy = self.destination[1] - self.pos[1]
         vx = vy = 0
         if self.dir[0] == 1:
@@ -42,10 +42,10 @@ class Fox(image.Image):
         elif self.dir[0] == -1:
             vx = -min(sx * 0.5 * divfps, FoxSpeed[self.action][0])
         tx = sx / vx
-        if tx >= 1 / fps:
+        if tx >= (1 / fps):
             vy = sy / tx
         else:
-            vy = sy * fps
+            vy = sy * divfps
         self.UpdateSpeed(vx, vy)
 
     def CheckRev(self):
@@ -56,9 +56,6 @@ class Fox(image.Image):
 
     def UpdateDest(self, npos):
         self.destination = npos
-        self.UpdateDir()
-        self.CheckSpeed()
-        self.CheckRev()
 
     def CheckIfArrive(self):
         flagx = False
@@ -83,6 +80,8 @@ class Fox(image.Image):
         self.UpdateAction(WALK)
         self.UpdateDest(npos)
         self.UpdateDir()
+        self.CheckSpeed()
+        self.CheckRev()
 
     def FoxCheck(self, npos):
         if npos != self.destination:

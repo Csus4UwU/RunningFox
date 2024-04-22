@@ -47,10 +47,18 @@ class Image(pygame.sprite.Sprite):
         self.pos[0] += speed[0]
         self.pos[1] += speed[1]
 
+    def LocLimit(self):
+        for i in range(2):
+            if self.pos[i] > ScreenSize[i]:
+                self.pos[i] = ScreenSize[i]
+            if self.pos[i] < 0:
+                self.pos[i] = 0
+
     def Update(self, speed, path, idxcount):
         self.UpdatePath(path, idxcount)
         self.CheckImageIndex()
         self.CheckPosition(speed)
+        self.LocLimit()
 
     def GetRect(self):
         rect = self.image.get_rect()

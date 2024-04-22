@@ -1,7 +1,6 @@
 # from akiba import *
 import pygame
 import mouse
-import image
 import fox
 from const import *
 import os

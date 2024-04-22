@@ -29,5 +29,5 @@ class Mouse:
         if mapidx == 1:
             if self.pos[1] > ScreenSize[1]:
                 self.pos[1] = ScreenSize[1]
-            elif self.pos[1] < -self.pos[0] * 5 / 9 + 900:
-                self.pos[1] = -self.pos[0] * 5 / 9 + 900
+            elif self.pos[1] < -self.pos[0] * 0.3 + 500:
+                self.pos[1] = -self.pos[0] * 0.3 + 500
