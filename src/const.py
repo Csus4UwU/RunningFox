@@ -41,3 +41,5 @@ FoxSpeed = {
     "surprise": (0, 0),
     "walk": (10, 10),
 }
+
+WHITE = (255,255,255)

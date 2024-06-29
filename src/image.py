@@ -4,7 +4,7 @@ import time
 
 
 class Image(pygame.sprite.Sprite):
-    def __init__(self, pathFmt, pathIndex, pos, size=None, pathIndexCount=0):
+    def __init__(self, pathFmt, pathIndex, pos, size=None, pathIndexCount=0) -> None:
         self.pathFmt = pathFmt
         self.pathIndex = pathIndex
         self.pathIndexCount = pathIndexCount
@@ -67,18 +67,6 @@ class Image(pygame.sprite.Sprite):
 
     def XReverse(self):
         self.Xrev = True
-
-    def DoLeft(self):
-        self.pos[0] -= 1
-
-    def DoRight(self):
-        self.pos[0] += 1
-
-    def DoUp(self):
-        self.pos[1] -= 1
-
-    def DoDown(self):
-        self.pos[1] += 1
 
     def draw(self, ds):
         ds.blit(self.image, self.GetRect())

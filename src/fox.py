@@ -32,21 +32,17 @@ class Fox(image.Image):
             self.dir[1] = 1
 
     def CheckSpeed(self, action=WALK):
-        # self.speed[0] = (self.destination[0] - self.pos[0]) / 60
-        # self.speed[1] = (self.destination[1] - self.pos[1]) / 60
-        sx = abs(self.destination[0] - self.pos[0])
-        sy = self.destination[1] - self.pos[1]
-        vx = vy = 0
-        if self.dir[0] == 1:
-            vx = max(sx * 0.5 * divfps, FoxSpeed[self.action][0])
-        elif self.dir[0] == -1:
-            vx = -min(sx * 0.5 * divfps, FoxSpeed[self.action][0])
-        tx = sx / vx
-        if tx >= (1 / fps):
-            vy = sy / tx
+        dx = self.destination[0] - self.pos[0]
+        dy = self.destination[1] - self.pos[1]
+        XNewSpeed = YNewSpeed = 0
+        t = 0
+        if abs(dx) > abs(dy):
+            t = min(abs(dx) * 0.05, 20)
         else:
-            vy = sy * divfps
-        self.UpdateSpeed(vx, vy)
+            t = min(abs(dy) * 0.05, 20)
+        XNewSpeed = dx / t
+        YNewSpeed = dy / t
+        self.UpdateSpeed(XNewSpeed, YNewSpeed)
 
     def CheckRev(self):
         if self.dir[0] == -1:

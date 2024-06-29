@@ -26,7 +26,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    DS.fill((255, 255, 255))
+    DS.fill(WHITE)
     Background.draw(DS)
     UserMouse.UpdateIsPressed()
     if UserMouse.IsLeftPressed:
