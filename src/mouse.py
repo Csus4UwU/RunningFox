@@ -26,10 +26,9 @@ class Mouse:
         self.pos[1] = self.pos[1] - 100
 
     def Correct(self, mapidx):
-        1
-        # if mapidx == 1:
-        #     if self.pos[1] > ScreenSize[1]:
-        #         self.pos[1] = ScreenSize[1]
-        #     elif self.pos[1] < -self.pos[0] * 0.3 + 500:
-        #         self.pos[1] = -self.pos[0] * 0.3 + 500
-
+        self.pos[0]=min(self.pos[0],1280)
+        self.pos[0]=max(self.pos[0],0)
+        self.pos[1]=min(self.pos[1],720)
+        self.pos[1]=max(self.pos[1],0)
+        if mapidx==1 :
+            pass

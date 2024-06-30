@@ -31,8 +31,6 @@ while True:
     UserMouse.UpdateIsPressed()
     if UserMouse.IsLeftPressed:
         d1 = tuple(UserMouse.CheckPos(Background.mapidx))
-    # if pygame.mouse.get_pressed()[0]:
-    #     d1 = (pygame.mouse.get_pos()[0] - 64, 500)
     Fox2.FoxCheck(d1)
     Fox2.FoxUpdate()
     Fox2.draw(DS)
