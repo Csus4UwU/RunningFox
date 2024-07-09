@@ -1,9 +1,7 @@
-# from akiba import *
 import pygame
 import mouse
 import fox
 from const import *
-import os
 import sys
 import gamemap
 
