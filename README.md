@@ -1,6 +1,7 @@
-# 一个基于pygame的小游戏
+# 基于 pygame 的 demo 
 
-本人纯业余
-刚开始学python，一边做一边学吧
+**小狐狸会跑到鼠标点击的地方。**
 
-目前进度10%，🦊能跑到鼠标点的地方
+下载pygame模块：
+
+`pip3 install pygame`
